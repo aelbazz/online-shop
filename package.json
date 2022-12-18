@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "my first node js  app ",
   "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
   "repository": "https://github.com/aelbazz/online-shop.git",
   "author": "Ahmed.elbazz.2010@gmail.com",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.1",
     "ejs": "^3.1.8",
+    "express": "^4.18.2",
     "mongodb": "^4.12.1",
     "mongoose": "^6.8.0"
   }
