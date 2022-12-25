@@ -33,3 +33,15 @@ exports.getProductsByCategory = (category) => {
       .catch((err) => reject(err));
   });
 };
+exports.getProductsById = (id) => {
+  return new Promise((resolve, reject) => {
+    mongoose
+      .connect(DB_URL)
+      .then(() => Product.findById(id))
+      .then((products) => {
+        mongoose.disconnect();
+        resolve(products);
+      })
+      .catch((err) => reject(err));
+  });
+};
