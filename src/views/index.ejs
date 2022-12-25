@@ -17,12 +17,17 @@
       </div>
     </div>
   </form>
-
+  <% if(products.length > 0) {%>
   <div class="row">
     <% for( let product of products) {%>
     <div class="col-md-3">
-      <div class="card" >
-        <img src="<%=product.image%>" class="card-img-top img-fluid" style="height: 10rem" alt="..." />
+      <div class="card">
+        <img
+          src="<%=product.image%>"
+          class="card-img-top img-fluid"
+          style="height: 10rem"
+          alt="..."
+        />
         <div class="card-body">
           <h5 class="card-title">
             <a href="/product/<%=product._id%>" class="btn btn-link p-0"
@@ -30,9 +35,14 @@
             >
           </h5>
 
-          <p class="card-text">Price : <%=product.price %> $</p> 
+          <p class="card-text">Price : <%=product.price %> $</p>
           <form action="/cart" method="POST">
-            <input type="number" name="amount" id="" class="form-control mb-2 " />
+            <input
+              type="number"
+              name="amount"
+              id=""
+              class="form-control mb-2"
+            />
             <button type="submit" class="btn btn-primary">Add To cart</button>
           </form>
         </div>
@@ -40,6 +50,12 @@
     </div>
     <% } %>
   </div>
+  <% }else{ %>
+    <div class="alert alert-danger">
+      There is no Products 
+    </div>
+    
+    <% } %>
 </div>
 
 <%- include('parts/footer.ejs')%>

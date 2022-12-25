@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const productController = require("../controllers/product.controller");
+router.get("/", (req, res, next) => {
+    res.redirect('/products')
+});
 router.get("/:id", productController.getProduct);
-
-console.log("test from product ");
-
 module.exports = router;
