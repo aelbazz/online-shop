@@ -10,6 +10,11 @@
       height="57"
     />
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <% if(authError){%>
+      <div class="alert alert-danger mb-3">
+        <%= authError %>
+      </div>
+      <% }%>
 
     <div class="form-floating">
       <input
@@ -36,6 +41,7 @@
       <label> <input type="checkbox" value="remember-me" /> Remember me </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+   
     <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
   </form>
 </main>

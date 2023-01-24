@@ -7,6 +7,12 @@ exports.postSignup = (req, res, next) => {
     .then(() => res.redirect("/login"))
     .catch(() => res.redirect("/signup"));
 };
+
+exports.getLogin = (req, res, next) => {
+  res.render("login",{
+    authError:req.flash( 'authError')[0]
+  });
+};
 exports.postLogin = (req, res, next) => {
   const { email, password } = req.body;
   authModal
@@ -16,11 +22,13 @@ exports.postLogin = (req, res, next) => {
       req.session.userId = id;
       res.redirect("/");
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
-      res.redirect("/login")
+      req.flash( 'authError', err)
+      res.redirect("/login");
     });
 };
+
 exports.logout = (req, res, next) => {
   req.session.destroy(() => {
     res.redirect("/");

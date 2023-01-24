@@ -9,9 +9,7 @@ router.post(
   bodyParser.urlencoded({ extended: true }),
   authController.postSignup
 );
-router.get("/login", (req, res, next) => {
-  res.render("login");
-});
+router.get("/login",authController.getLogin );
 router.post(
   "/login",
   bodyParser.urlencoded({ extended: true }),
